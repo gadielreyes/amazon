@@ -1,0 +1,42 @@
+<table class="product-table">
+	<caption class="product-table__caption">Las 10 Mejores Barras de Sonido En España</caption>
+	<thead>
+		<tr>
+			<th>Producto</th>
+			<th>Caracteristicas Clave</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for product in products %}
+			<tr class="product-table__specs">
+				<td class="product-table__specs__image-container">
+					<span class="product-table__specs__image-container__rank">#{{ product.rank }}</span>
+					<img class="product-table__specs__image-containers__image" src="{{ product.image }}"/>
+				</td>
+				<td class="product-table__specs__details-container">
+					<p class="product-table__specs__title">{{ product.title }}</p>
+					<p class="product-table__specs__brand">{{ product.brand }}</p>
+					{% if product.saving %}
+						<p class="product-table__specs__saving">{{ product.saving }}% Descuento</p>
+					{% endif %}
+					<button class="product-table__specs__buton-more">Mostrar más
+						<i class="product-table__specs__buton-more__arrow"></i>
+					</button>
+				</td>
+				<td>
+					<a class="product-table__specs__buy-now" href="{{ product.detail_page }}" target="_blank">Comprar ahora
+						<i class="product-table__specs__buy-now__arrow"></i>
+					</a>
+				</td>
+			</tr>
+			<tr class="product-table__description">
+				<td colspan="3">
+					{% for description in product.descriptions %}
+						<p>{{ description }}</p>
+					{% endfor %}
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>

@@ -12,6 +12,16 @@ nav {
   max-width: 64rem;
 }
 
+table {
+  border-collapse: separate;
+}
+
+td,
+th {
+  border: 1px solid $iron-300;
+  padding: 0 0.8rem;
+}
+
 h1,
 h2 {
   color: $purple;

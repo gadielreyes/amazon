@@ -3,4 +3,18 @@
 {% block title %}Products
 {% endblock %}
 
-{% block body %}{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('product') }}
+{% endblock %}
+
+{% block body %}
+	<main>
+		{% include('product/table.html.twig') %}
+	</main>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('product') }}
+{% endblock %}

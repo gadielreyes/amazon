@@ -3,10 +3,15 @@
 		<div class="nav__sections">
 			<h1>Amazon</h1>
 			<a href="{{ path('app_home') }}">Home</a>
-			<a href="#">Products</a>
+			<a href="{{ path('app_product') }}">Products</a>
 		</div>
 		<div class="nav__authentication">
-			<a href="#">Login</a>
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				<p>{{ app.user.email }}</p>
+				<a href="{{ path('app_logout') }}">Log out</a>
+			{% else %}
+				<a href="{{ path('app_login') }}">Log in</a>
+			{% endif %}
 		</div>
 	</nav>
 {% endblock %}

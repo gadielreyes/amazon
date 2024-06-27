@@ -21,3 +21,7 @@ nginx-shell:
 .PHONY:
 php-shell:
 	docker exec -it amazon-php /bin/bash
+
+.PHONY:
+db-shell:
+	docker exec -it amazon-db /bin/bash

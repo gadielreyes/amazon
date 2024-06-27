@@ -6,7 +6,7 @@ RUN apt-get install -y vim unzip git curl libzip-dev
 RUN curl -sL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt-get install -y nodejs
-RUN docker-php-ext-install zip opcache
+RUN docker-php-ext-install pdo_mysql zip opcache
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN rm -rf /tmp/*
 

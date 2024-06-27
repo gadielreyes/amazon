@@ -13,3 +13,11 @@ init:
 .PHONY:
 rebuild:
 	docker-compose up --build --force-recreate -d
+
+.PHONY:
+nginx-shell:
+	docker exec -it amazon-nginx /bin/bash
+
+.PHONY:
+php-shell:
+	docker exec -it amazon-php /bin/bash

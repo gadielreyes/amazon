@@ -15,3 +15,5 @@ Amazon Product Panel
 2. `cd amazaon`
 3. `make init`
 4. `go to localhost:8000`
+5. `user: user@amazon.com`
+6. `password: userPassword`

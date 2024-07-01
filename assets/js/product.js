@@ -1,21 +1,23 @@
-import "./styles/product.scss";
+import "../styles/product.scss";
 
 let product = (function () {
   "use strict";
 
   const init = function () {
     const showMoreButtons = document.querySelectorAll(
-      ".product-table__specs__buton-more"
+      ".product__items__item__specs__details__button-more"
     );
-    console.log(showMoreButtons);
+
     const handleShowMoreButtonClick = function () {
       const arrow = this.querySelector(
-        ".product-table__specs__buton-more__arrow"
+        ".product__items__item__specs__details__button-more__arrow"
       );
       const description = this.parentElement.parentElement.nextElementSibling;
-
-      arrow.classList.toggle("product-table__specs__buy-now__arrow--down");
-      description.classList.toggle("product-table__description--show");
+      console.log(description);
+      arrow.classList.toggle(
+        "product__items__item__specs__details__buy-now__arrow--down"
+      );
+      description.classList.toggle("product__items__item__description--show");
     };
 
     for (let i = 0; i < showMoreButtons.length; i++) {

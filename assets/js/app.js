@@ -6,4 +6,11 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import "./styles/app.scss";
+import "../styles/app.scss";
+
+const imagesContext = require.context(
+  "../img",
+  true,
+  /\.(png|jpg|jpeg|gif|ico|svg|webp)$/
+);
+imagesContext.keys().forEach(imagesContext);

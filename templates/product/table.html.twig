@@ -1,41 +1,52 @@
-<table class="product-table">
-	<caption class="product-table__caption">Las 10 Mejores Barras de Sonido En España</caption>
-	<thead>
-		<tr>
-			<th>Producto</th>
-			<th colspan="2">Caracteristicas Clave</th>
-		</tr>
-	</thead>
-	<tbody>
+<div class="product">
+	<div class="product__header">
+		<h1 class="product__header__title">Las 10 mejores Barras De Sonido En España</h1>
+		<p class="product__header__declaration">Declaración de divulgación publicitaria</p>
+		<div class="product__header__labels">
+			<span>Producto</span>
+			<span>Nuestra Puntuación</span>
+			<span>Caracteristicas Clave</span>
+			<span></span>
+		</div>
+	</div>
+	<div class="product__items">
 		{% for product in products %}
-			<tr class="product-table__specs">
-				<td class="product-table__specs__image-container">
-					<span class="product-table__specs__image-container__rank">#{{ product.rank }}</span>
-					<img class="product-table__specs__image-containers__image" src="{{ product.image }}"/>
-				</td>
-				<td class="product-table__specs__details-container">
-					<p class="product-table__specs__title">{{ product.title }}</p>
-					<p class="product-table__specs__brand">{{ product.brand }}</p>
-					{% if product.saving %}
-						<p class="product-table__specs__saving">{{ product.saving }}% Descuento</p>
-					{% endif %}
-					<button class="product-table__specs__buton-more">Mostrar más
-						<i class="product-table__specs__buton-more__arrow"></i>
-					</button>
-				</td>
-				<td>
-					<a class="product-table__specs__buy-now" href="{{ product.detail_page }}" target="_blank">Comprar ahora
-						<i class="product-table__specs__buy-now__arrow"></i>
-					</a>
-				</td>
-			</tr>
-			<tr class="product-table__description">
-				<td colspan="3">
-					{% for description in product.descriptions %}
-						<p>{{ description }}</p>
-					{% endfor %}
-				</td>
-			</tr>
+			<div class="product__items__item">
+				<div class="product__items__item__specs">
+					<div class="product__items__item__specs__image-container">
+						<span class="product__items__item__specs__image-container__rank">#{{ product.rank }}</span>
+						<img class="product__items__item__specs__image-container__image" src="{{ product.image }}"/>
+					</div>
+					<div class="product__items__item__specs__score">
+						<span class="product__items__item__specs__score__text">9.9</span>
+					</div>
+					<div class="product__items__item__specs__details">
+						<p class="product__items__item__specs__details__title">{{ product.title }}</p>
+						<p class="product__items__item__specs__details__brand">{{ product.brand }}</p>
+						{% if product.saving %}
+							<p class="product__items__item__specs__details__saving">{{ product.saving }}% Descuento</p>
+						{% endif %}
+						<button class="product__items__item__specs__details__button-more">Mostrar más
+							<i class="product__items__item__specs__details__button-more__arrow"></i>
+						</button>
+					</div>
+					<div class="product__items_item_specs__buy">
+						{{ include('product/buy_button.html.twig') }}
+					</div>
+				</div>
+				<div class="product__items__item__description">
+					<div class="product__items__item__description__text">
+						<ul>
+							{% for description in product.descriptions %}
+								<li>{{ description }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="product__items__item__description__buy">
+						{{ include('product/buy_button.html.twig') }}
+					</div>
+				</div>
+			</div>
 		{% endfor %}
-	</tbody>
-</table>
+	</div>
+</div>

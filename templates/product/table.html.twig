@@ -18,7 +18,7 @@
 						<img class="product__items__item__specs__image-container__image" src="{{ product.image }}"/>
 					</div>
 					<div class="product__items__item__specs__score">
-						<span class="product__items__item__specs__score__text">9.9</span>
+						{% include 'product/score.html.twig' with {'scoreData': product.score_data} %}
 					</div>
 					<div class="product__items__item__specs__details">
 						<p class="product__items__item__specs__details__title">{{ product.title }}</p>
@@ -31,7 +31,7 @@
 						</button>
 					</div>
 					<div class="product__items_item_specs__buy">
-						{{ include('product/buy_button.html.twig') }}
+						{% include('product/buy_button.html.twig') %}
 					</div>
 				</div>
 				<div class="product__items__item__description">
@@ -43,7 +43,7 @@
 						</ul>
 					</div>
 					<div class="product__items__item__description__buy">
-						{{ include('product/buy_button.html.twig') }}
+						{% include('product/buy_button.html.twig') %}
 					</div>
 				</div>
 			</div>

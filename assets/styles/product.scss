@@ -61,11 +61,52 @@
 
 .product__items__item__specs__score {
   width: $second-column-width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.product__items__item__specs__score__text {
+.score {
+  text-align: center;
+}
+
+.score__number {
   font-size: 3rem;
   font-weight: bold;
+  margin: 0;
+}
+
+.score__stars {
+  position: relative;
+  float: left;
+  font-size: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+
+  &:before {
+    content: "\2606\2606\2606\2606\2606";
+    float: left;
+    z-index: 1;
+    color: $butter-cup-300;
+  }
+}
+
+.score__percentage {
+  position: absolute;
+  left: 0;
+  float: left;
+  overflow: hidden;
+  z-index: -1;
+
+  &:after {
+    content: "\2605\2605\2605\2605\2605";
+    color: $butter-cup-400;
+  }
+}
+
+.score__text {
+  margin-top: 1.25rem;
+  color: $blue;
 }
 
 .product__items__item__specs__image-container__rank {
@@ -76,7 +117,7 @@
 }
 
 .product__items__item__specs__image-container__image {
-  width: 10rem;
+  width: 96%;
 }
 
 .product__items__item__specs__details {
@@ -128,8 +169,8 @@
 .product__items__item__specs__details__button-more {
   align-items: center;
   border: none;
-  background: white;
-  color: blue;
+  background: $white;
+  color: $blue;
   cursor: pointer;
   display: flex;
   gap: 0.5rem;
@@ -137,7 +178,7 @@
 }
 
 .product__items__item__specs__details__button-more__arrow {
-  border: solid blue;
+  border: solid $blue;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
@@ -158,14 +199,14 @@
 
 .buy__button {
   text-decoration: none;
-  background-color: $buy-now-button;
+  background-color: $butter-cup-400;
   text-wrap: nowrap;
-  color: white;
+  color: $white;
   padding: 0.5rem;
 }
 
 .buy__button__arrow {
-  border: solid white;
+  border: solid $white;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;

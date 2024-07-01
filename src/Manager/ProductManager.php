@@ -2,10 +2,15 @@
 
 namespace App\Manager;
 
+use App\Helper\Common;
 use Exception;
 
 class ProductManager extends AbstractManager
 {
+    private const DECIMAL_AMOUNT = 1;
+    private const MIN_VALUE = 0;
+    private const MAX_VALUE = 10;
+
     public function getTopTen(): array
     {
         $products = [];
@@ -38,9 +43,70 @@ class ProductManager extends AbstractManager
                 "detail_page" => $product["DetailPageURL"] ?? null,
                 "image" => $product["Images"]["Primary"]["Large"]["URL"] ?? null,
                 "descriptions" => $itemInfo["Features"]["DisplayValues"] ?? null,
+                "score_data" => $this->getScoreData()
             ];
         }
 
         return $data;
+    }
+
+    private function getScoreData(): array
+    {
+        $score = Common::getRandomFloat(self::DECIMAL_AMOUNT, self::MIN_VALUE, self::MAX_VALUE);
+        $percentage = $this->getScorePecentage($score);
+
+        return [
+            "score" => $score,
+            "percentage" => $percentage,
+            "text" => $this->getScoreText($percentage)
+        ];
+    }
+
+    private function getScorePecentage(float $score): int
+    {
+        return ($score / self::MAX_VALUE) * 100;
+    }
+
+    private function getScoreText(int $percentage): string
+    {
+        $text = "Deficiente";
+        $ranges = [
+            [
+                "value" => 0,
+                "message" => "Deficiente"
+            ],
+            [
+                "value" => 50,
+                "message" => "Aceptable"
+            ],
+            [
+                "value" => 60,
+                "message" => "Bueno"
+            ],
+            [
+                "value" => 70,
+                "message" => "Genial"
+            ],
+            [
+                "value" => 80,
+                "message" => "Excelente"
+            ],
+            [
+                "value" => 90,
+                "message" => "Excepcional"
+            ],
+            [
+                "value" => 100,
+                "message" => ""
+            ]
+        ];
+
+        for ($i = 0; $i < count($ranges) - 1; $i++) {
+            if ($percentage > $ranges[$i]["value"] && $percentage <= $ranges[$i + 1]["value"]) {
+                $text = $ranges[$i]["message"];
+            }
+        }
+
+        return $text;
     }
 }

@@ -8,7 +8,71 @@
 
 .product__header__title {
   font-size: xx-large;
+  text-transform: capitalize;
+}
+
+.feature-label--option,
+.feature-label--value {
+  color: $white;
+  font-weight: bold;
+  left: -0.825rem;
+  letter-spacing: 0.1rem;
+  padding: 0.4rem 1rem;
+  position: absolute;
   text-transform: uppercase;
+  top: -1rem;
+  width: 16rem;
+}
+
+.feature-label__tail-up,
+.feature-label__tail-down,
+.feature-label__head {
+  border-left: 1.25rem solid transparent;
+  border-right: 1.25rem solid transparent;
+  height: 0;
+  position: absolute;
+  width: 0;
+}
+
+.feature-label__tail-up {
+  border-top: 1.25rem solid $atlantis-400;
+  right: -0.825rem;
+  top: 0;
+}
+
+.feature-label__tail-down {
+  border-bottom: 1.25rem solid $atlantis-400;
+  bottom: 0;
+  right: -0.825rem;
+}
+
+.feature-label__head {
+  border-bottom: 0.4rem solid $atlantis-400;
+  border-left: 0.4rem solid transparent;
+  border-right: 0.4rem solid transparent;
+  bottom: -0.45rem;
+  left: 0.125rem;
+  transform: rotate(45deg);
+}
+
+.feature-label--option {
+  background-color: $atlantis-400;
+}
+
+.feature-label--value {
+  background-color: $vida-loca-600;
+
+  & .feature-label__tail-up {
+    border-top: 1.25rem solid $vida-loca-600;
+  }
+
+  & .feature-label__tail-down {
+    border-bottom: 1.25rem solid $vida-loca-600;
+  }
+
+  .feature-label__head {
+    border-bottom: 0.4rem solid $vida-loca-600;
+  }
 }
 
 .product__header__declaration {
@@ -16,14 +80,14 @@
 }
 
 .product__header__labels {
-  display: flex;
   background-color: $iron-50;
-  border-top: 1px solid $iron-300;
-  border-bottom: 1px solid $iron-300;
+  border-bottom: 0.0625rem solid $iron-300;
+  border-top: 0.0625rem solid $iron-300;
+  display: flex;
 
   & span {
-    text-align: center;
     padding: 0.25rem $column-padding;
+    text-align: center;
   }
 
   & span:first-child {
@@ -35,18 +99,18 @@
   }
 
   & span:nth-child(3) {
-    width: $third-column-width;
     text-align: left;
+    width: $third-column-width;
   }
 }
 
 .product__items__item__specs {
+  border: 0.0625rem solid $iron-300;
   display: flex;
-  margin-top: 1.25rem;
-  border: 1px solid $iron-300;
+  margin-top: 1.825rem;
 
   & > div:not(:last-child) {
-    border-right: 1px solid $iron-300;
+    border-right: 0.0625rem solid $iron-300;
   }
 
   & > div {
@@ -60,10 +124,10 @@
 }
 
 .product__items__item__specs__score {
-  width: $second-column-width;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
+  width: $second-column-width;
 }
 
 .score {
@@ -73,47 +137,49 @@
 .score__number {
   font-size: 3rem;
   font-weight: bold;
+  letter-spacing: 0.25rem;
   margin: 0;
 }
 
 .score__stars {
-  position: relative;
   float: left;
-  font-size: 1rem;
+  font-size: 1.2rem;
   height: 1rem;
   line-height: 1rem;
+  position: relative;
 
   &:before {
+    color: $butter-cup-300;
     content: "\2606\2606\2606\2606\2606";
     float: left;
     z-index: 1;
-    color: $butter-cup-300;
   }
 }
 
 .score__percentage {
-  position: absolute;
-  left: 0;
   float: left;
+  left: 0;
   overflow: hidden;
+  position: absolute;
   z-index: -1;
 
   &:after {
-    content: "\2605\2605\2605\2605\2605";
     color: $butter-cup-400;
+    content: "\2605\2605\2605\2605\2605";
   }
 }
 
 .score__text {
-  margin-top: 1.25rem;
   color: $blue-700;
+  margin-top: 1.5rem;
 }
 
 .product__items__item__specs__image-container__rank {
+  background-color: $iron-300;
+  left: 0;
+  padding: 0.1rem 0.3rem;
   position: absolute;
   top: 0;
-  left: 0;
-  background-color: $iron-400;
 }
 
 .product__items__item__specs__image-container__image {
@@ -125,10 +191,10 @@
 }
 
 .product__items__item__specs__details__title {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
 }
 
 .product__items__item__specs__details__brand {
@@ -140,20 +206,20 @@
   gap: 0.5rem;
 
   & div {
-    border: 1px solid black;
     border-radius: $default-border-radius;
-    text-align: center;
+    border: 0.0625rem solid black;
     margin-bottom: 1rem;
+    text-align: center;
     width: 7rem;
   }
 }
 
 .product__items_item_specs__buy,
 .product__items__item__description__buy {
-  display: flex;
   align-items: center;
-  width: 18%;
+  display: flex;
   justify-content: center;
+  width: 18%;
 }
 
 .product__items__item__description__buy {
@@ -174,8 +240,8 @@
 
 .product__items__item__specs__details__button-more {
   align-items: center;
-  border: none;
   background: $white;
+  border: none;
   color: $blue-400;
   cursor: pointer;
   display: flex;
@@ -183,19 +249,23 @@
   padding-bottom: 1rem;
 }
 
-.product__items__item__specs__details__button-more__arrow {
+.product__items__item__specs__details__button-more__arrow,
+.buy__button__arrow {
   border: solid $blue-700;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
   transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+}
+
+.product__items__item__specs__details__buy-now__arrow--down {
+  transform: rotate(-135deg);
 }
 
 .buy {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.75rem;
 }
 
@@ -204,44 +274,40 @@
 }
 
 .buy__button {
-  text-decoration: none;
   background-color: $butter-cup-400;
-  text-wrap: nowrap;
   color: $white;
   padding: 0.5rem;
+  text-decoration: none;
+  text-wrap: nowrap;
 }
 
 .buy__button__arrow {
   border: solid $white;
   border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 3px;
   transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.buy__button__arrow--down {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
 }
 
 .product__items__item__description {
-  transition: opacity 1s ease-out;
-  opacity: 0;
   height: 0;
+  opacity: 0;
   overflow: hidden;
+  transition: opacity 1s ease-out;
 }
 
 .product__items__item__description__text {
   padding: 1rem;
   width: 82%;
+
+  & li {
+    margin-bottom: 1rem;
+  }
 }
 
 .product__items__item__description--show {
-  display: flex;
-  opacity: 1;
-  height: auto;
+  border-bottom: $border;
   border-left: $border;
   border-right: $border;
-  border-bottom: $border;
+  display: flex;
+  height: auto;
+  opacity: 1;
 }

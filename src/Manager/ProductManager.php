@@ -33,7 +33,7 @@ class ProductManager extends AbstractManager
     private function cleanProductData(array $products): array
     {
         $data = [];
-        foreach ($products as $product) {
+        foreach ($products as $index => $product) {
             $itemInfo = $product["ItemInfo"] ?? null;
             $data[] = [
                 "rank" => $product["BrowseNodeInfo"]["BrowseNodes"][0]["SalesRank"] ?? null,
@@ -43,7 +43,9 @@ class ProductManager extends AbstractManager
                 "detail_page" => $product["DetailPageURL"] ?? null,
                 "image" => $product["Images"]["Primary"]["Large"]["URL"] ?? null,
                 "descriptions" => $itemInfo["Features"]["DisplayValues"] ?? null,
-                "score_data" => $this->getScoreData()
+                "score_data" => $this->getScoreData(),
+                "is_best_option" => $index === 0,
+                "is_best_value" => $index === 2
             ];
         }
 

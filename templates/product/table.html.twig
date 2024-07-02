@@ -1,3 +1,5 @@
+{% set year = "now"|date("Y") %}
+
 <div class="product">
 	<div class="product__header">
 		<h1 class="product__header__title">Las 10 mejores Barras De Sonido En España</h1>
@@ -14,7 +16,13 @@
 			<div class="product__items__item">
 				<div class="product__items__item__specs">
 					<div class="product__items__item__specs__image-container">
-						<span class="product__items__item__specs__image-container__rank">#{{ product.rank }}</span>
+						{% if product.is_best_option %}
+							{% include "product/feature_label.html.twig" with { "text": "Mejor Opción " ~ year, "rank": product.rank, "type": "option" } %}
+						{% elseif product.is_best_value %}
+							{% include "product/feature_label.html.twig" with { "text": "Mejor Valor " ~ year, "rank": product.rank, "type": "value" } %}
+						{% else %}
+							<div class="product__items__item__specs__image-container__rank">#{{ product.rank }}</div>
+						{% endif %}
 						<img class="product__items__item__specs__image-container__image" src="{{ product.image }}"/>
 					</div>
 					<div class="product__items__item__specs__score">

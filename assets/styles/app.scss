@@ -28,9 +28,9 @@ p {
 
 nav {
   align-items: baseline;
-  justify-content: space-between;
   border-bottom: 2px solid $iron-300;
   display: flex;
+  justify-content: space-between;
 }
 
 .nav__sections,
@@ -51,11 +51,11 @@ nav {
 }
 
 .login-form {
-  margin: 0 auto;
-  max-width: 20rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin: 0 auto;
+  max-width: 20rem;
 }
 
 .login-form__title {
@@ -63,16 +63,16 @@ nav {
 }
 
 .login-form__form-control {
-  height: $form-control-height;
   border-radius: $default-border-radius;
   border: 0.025rem solid $iron-300;
+  height: $form-control-height;
   padding: 0.25rem 0.5rem;
 }
 
 .login-form__button {
-  height: $form-control-height;
   background-color: $purple;
-  border: none;
   border-radius: $default-border-radius;
+  border: none;
   color: white;
+  height: $form-control-height;
 }

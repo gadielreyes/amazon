@@ -18,14 +18,17 @@
 						<img class="product__items__item__specs__image-container__image" src="{{ product.image }}"/>
 					</div>
 					<div class="product__items__item__specs__score">
-						{% include 'product/score.html.twig' with {'scoreData': product.score_data} %}
+						{% include 'product/score.html.twig' with { 'scoreData': product.score_data } %}
 					</div>
 					<div class="product__items__item__specs__details">
 						<p class="product__items__item__specs__details__title">{{ product.title }}</p>
 						<p class="product__items__item__specs__details__brand">{{ product.brand }}</p>
-						{% if product.saving %}
-							<p class="product__items__item__specs__details__saving">{{ product.saving }}% Descuento</p>
-						{% endif %}
+						<div class="product__items__item__specs__details__tags">
+							{% if product.saving %}
+								<div>{{ product.saving }}% Descuento</div>
+							{% endif %}
+							<div>Envío gratis</div>
+						</div>
 						<button class="product__items__item__specs__details__button-more">Mostrar más
 							<i class="product__items__item__specs__details__button-more__arrow"></i>
 						</button>

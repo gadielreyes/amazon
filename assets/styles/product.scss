@@ -106,7 +106,7 @@
 
 .score__text {
   margin-top: 1.25rem;
-  color: $blue;
+  color: $blue-700;
 }
 
 .product__items__item__specs__image-container__rank {
@@ -135,11 +135,17 @@
   color: $iron-400;
 }
 
-.product__items__item__specs__details__saving {
-  border: 1px solid black;
-  border-radius: $default-border-radius;
-  text-align: center;
-  width: 7rem;
+.product__items__item__specs__details__tags {
+  display: flex;
+  gap: 0.5rem;
+
+  & div {
+    border: 1px solid black;
+    border-radius: $default-border-radius;
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 7rem;
+  }
 }
 
 .product__items_item_specs__buy,
@@ -170,7 +176,7 @@
   align-items: center;
   border: none;
   background: $white;
-  color: $blue;
+  color: $blue-400;
   cursor: pointer;
   display: flex;
   gap: 0.5rem;
@@ -178,7 +184,7 @@
 }
 
 .product__items__item__specs__details__button-more__arrow {
-  border: solid $blue;
+  border: solid $blue-700;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
